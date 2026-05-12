@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Explore a variety of indoor plants for your home or office." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indoor Plants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background-color: #f5f2ee;
+            color: #2c2c2c;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #3a5a40;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            color: #f0ebe3;
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+
+        header p {
+            color: #c8d8c2;
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .plant-card {
+            background-color: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .plant-card img {
+            width: 320px;
+            min-height: 280px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .plant-info {
+            padding: 32px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .plant-info h2 {
+            font-size: 1.6rem;
+            color: #3a5a40;
+            font-weight: normal;
+            border-bottom: 1px solid #d8e8d4;
+            padding-bottom: 10px;
+        }
+
+        .plant-info p {
+            font-size: 0.97rem;
+            color: #444;
+        }
+
+        .price {
+            display: inline-block;
+            font-size: 1.05rem;
+            color: #3a5a40;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #e0dcd6;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .plant-card {
+                flex-direction: column;
+            }
+
+            .plant-card img {
+                width: 100%;
+                min-height: 220px;
+            }
+
+            .plant-info {
+                padding: 24px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Indoor Plants</h1>
+        <p>Bloom &amp; Petal Haven &mdash; bringing nature into your home</p>
+    </header>
+
+    <main>
+
+        <div class="plant-card">
+            <img src="https://edube.org/uploads/media/default/0001/04/spathiphyllum-peace-lily.jpg" alt="Peace Lily" />
+            <div class="plant-info">
+                <h2>Peace Lily</h2>
+                <p>The Peace Lily, known for its elegant white flowers, is a popular choice for indoor spaces.</p>
+                <p><span class="price">Price: $15</span></p>
+            </div>
+        </div>
+
+        <div class="plant-card">
+            <img src="https://edube.org/uploads/media/default/0001/04/zamioculcas-zanzibar-gem.jpg"
+                alt="Zanzibar Gem" />
+            <div class="plant-info">
+                <h2>Zanzibar Gem</h2>
+                <p>The Zanzibar Gem, with its glossy green foliage, is a low-maintenance indoor plant perfect for
+                    beginners.</p>
+                <p><span class="price">Price: $20</span></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2026 Bloom &amp; Petal Haven. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
