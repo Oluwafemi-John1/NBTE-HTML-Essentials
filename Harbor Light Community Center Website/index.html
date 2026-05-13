@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Harbor Light Community Center – connecting the community through services, events, and educational programs in a welcoming environment."
+    />
+    <title>Harbor Light Community Center</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =============================================
+         CSS Custom Properties (Design Tokens)
+      ============================================= */
+      :root {
+        --color-primary: hsl(210, 70%, 38%);
+        --color-primary-light: hsl(210, 70%, 50%);
+        --color-primary-dark: hsl(210, 70%, 26%);
+        --color-accent: hsl(38, 90%, 52%);
+        --color-accent-light: hsl(38, 90%, 65%);
+        --color-bg: hsl(210, 20%, 98%);
+        --color-surface: hsl(0, 0%, 100%);
+        --color-surface-alt: hsl(210, 20%, 95%);
+        --color-text: hsl(215, 25%, 18%);
+        --color-text-muted: hsl(215, 15%, 45%);
+        --color-border: hsl(210, 20%, 88%);
+        --color-footer-bg: hsl(210, 35%, 16%);
+        --color-footer-text: hsl(210, 20%, 88%);
+
+        --font-body: "Inter", system-ui, sans-serif;
+        --font-heading: "Playfair Display", Georgia, serif;
+
+        --radius-sm: 6px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+
+        --shadow-sm: 0 1px 4px hsla(210, 30%, 20%, 0.08);
+        --shadow-md: 0 4px 16px hsla(210, 30%, 20%, 0.12);
+        --shadow-lg: 0 12px 40px hsla(210, 30%, 20%, 0.18);
+
+        --transition: 0.25s ease;
+      }
+
+      /* =============================================
+         Reset & Base
+      ============================================= */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Task 7: Replace <font> tag – set body font via CSS */
+      body {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color var(--transition);
+      }
+
+      a:hover,
+      a:focus-visible {
+        color: var(--color-primary-light);
+        text-decoration: underline;
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--color-accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
+      /* =============================================
+         Task 7: .center-and-space-content utility class
+      ============================================= */
+      .center-and-space-content {
+        text-align: center;
+        padding: 10px;
+      }
+
+      /* =============================================
+         Skip Link (Accessibility)
+      ============================================= */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        background: var(--color-primary);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+        z-index: 9999;
+        transition: top var(--transition);
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+        text-decoration: none;
+      }
+
+      /* =============================================
+         Header
+      ============================================= */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary-dark) 0%,
+          var(--color-primary) 60%,
+          var(--color-primary-light) 100%
+        );
+        color: #fff;
+        padding: 2rem 1.5rem 1.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow-md);
+      }
+
+      .header-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      /* Task 7: Wrap logo in .center-and-space-content div */
+      .logo-wrapper {
+        flex-shrink: 0;
+      }
+
+      header img.logo {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        border: 3px solid hsla(0, 0%, 100%, 0.4);
+        object-fit: cover;
+        box-shadow: var(--shadow-md);
+      }
+
+      .header-text h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.4rem, 3.5vw, 2rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .header-text p {
+        font-size: 0.95rem;
+        opacity: 0.85;
+        margin-top: 0.25rem;
+      }
+
+      /* =============================================
+         Navigation
+      ============================================= */
+      nav {
+        background: var(--color-surface);
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-sm);
+      }
+
+      nav ul {
+        max-width: 1100px;
+        margin: 0 auto;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        padding: 0 1rem;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 1rem 1.25rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--color-text);
+        letter-spacing: 0.01em;
+        border-bottom: 3px solid transparent;
+        transition: color var(--transition), border-color var(--transition),
+          background var(--transition);
+      }
+
+      nav ul li a:hover,
+      nav ul li a:focus-visible {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+        background: var(--color-surface-alt);
+        text-decoration: none;
+      }
+
+      /* =============================================
+         Decorative Banner
+      ============================================= */
+      .banner-wrapper {
+        position: relative;
+        max-height: 380px;
+        overflow: hidden;
+      }
+
+      .banner-wrapper img {
+        width: 100%;
+        max-height: 380px;
+        object-fit: cover;
+        object-position: center 40%;
+        filter: brightness(0.8);
+      }
+
+      .banner-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 40%,
+          hsla(210, 70%, 20%, 0.55) 100%
+        );
+      }
+
+      .banner-caption {
+        position: absolute;
+        bottom: 1.75rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        font-family: var(--font-heading);
+        font-weight: 700;
+        text-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.5);
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+      }
+
+      /* =============================================
+         Main Content
+      ============================================= */
+      main {
+        max-width: 1100px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      /* =============================================
+         Section Cards
+      ============================================= */
+      section {
+        background: var(--color-surface);
+        border-radius: var(--radius-lg);
+        padding: 2.5rem 2.25rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+        transition: box-shadow var(--transition), transform var(--transition);
+      }
+
+      section:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+      }
+
+      section h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.4rem, 3vw, 1.85rem);
+        color: var(--color-primary-dark);
+        margin-bottom: 1.1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 3px solid var(--color-accent);
+        display: inline-block;
+      }
+
+      section p {
+        color: var(--color-text-muted);
+        max-width: 72ch;
+        margin-bottom: 1rem;
+      }
+
+      section p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* =============================================
+         About Section – community image
+      ============================================= */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+        margin-top: 1.25rem;
+      }
+
+      .about-grid img {
+        width: 100%;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
+        object-fit: cover;
+        max-height: 260px;
+      }
+
+      /* =============================================
+         Services list
+      ============================================= */
+      .services-list {
+        list-style: none;
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .services-list li {
+        background: var(--color-surface-alt);
+        border-radius: var(--radius-md);
+        padding: 1rem 1.25rem;
+        border-left: 4px solid var(--color-primary);
+        font-weight: 500;
+        color: var(--color-text);
+        transition: background var(--transition), border-color var(--transition);
+      }
+
+      .services-list li:hover {
+        background: hsl(210, 70%, 96%);
+        border-left-color: var(--color-accent);
+      }
+
+      /* =============================================
+         Event Card (Schema.org microdata section)
+      ============================================= */
+      .event-card {
+        background: linear-gradient(
+          135deg,
+          hsl(38, 90%, 97%),
+          hsl(210, 70%, 97%)
+        );
+        border: 1px solid var(--color-accent-light);
+        border-radius: var(--radius-md);
+        padding: 1.5rem 1.75rem;
+        margin-top: 1.25rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .event-card::before {
+        content: "🎉";
+        position: absolute;
+        right: 1.5rem;
+        top: 1rem;
+        font-size: 2rem;
+        opacity: 0.35;
+      }
+
+      .event-card p {
+        color: var(--color-text);
+        margin-bottom: 0;
+      }
+
+      .event-card strong {
+        font-size: 1.1rem;
+        color: var(--color-primary-dark);
+      }
+
+      .event-card time {
+        font-weight: 600;
+        color: var(--color-accent);
+        background: hsla(38, 90%, 52%, 0.12);
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.92rem;
+      }
+
+      /* =============================================
+         Contact Section
+      ============================================= */
+      #contact {
+        background: var(--color-surface-alt);
+      }
+
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--color-primary);
+        color: #fff !important;
+        padding: 0.6rem 1.2rem;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+        margin-top: 0.75rem;
+        transition: background var(--transition), transform var(--transition),
+          box-shadow var(--transition);
+        text-decoration: none !important;
+      }
+
+      .contact-link:hover,
+      .contact-link:focus-visible {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+        text-decoration: none !important;
+      }
+
+      /* =============================================
+         Footer
+      ============================================= */
+      footer {
+        background: var(--color-footer-bg);
+        color: var(--color-footer-text);
+        padding: 2.5rem 1.5rem 1.75rem;
+        margin-top: 3rem;
+      }
+
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 1.75rem;
+      }
+
+      footer h2 {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        color: #fff;
+        margin-bottom: 0.75rem;
+      }
+
+      footer p,
+      footer li {
+        color: var(--color-footer-text);
+        font-size: 0.92rem;
+        line-height: 1.8;
+      }
+
+      footer a {
+        color: var(--color-accent-light);
+        font-weight: 500;
+      }
+
+      footer a:hover {
+        color: var(--color-accent);
+      }
+
+      .footer-bottom {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding-top: 1.25rem;
+        border-top: 1px solid hsla(210, 20%, 50%, 0.3);
+        text-align: center;
+        font-size: 0.88rem;
+        color: hsla(210, 20%, 75%, 0.7);
+      }
+
+      /* =============================================
+         Responsive
+      ============================================= */
+      @media (max-width: 768px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-inner {
+          grid-template-columns: 1fr;
+        }
+
+        nav ul {
+          justify-content: center;
+        }
+
+        nav ul li a {
+          padding: 0.75rem 0.9rem;
+          font-size: 0.88rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 1.25rem 1rem 1rem;
+        }
+
+        .header-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        main {
+          padding: 0 1rem;
+        }
+
+        section {
+          padding: 1.75rem 1.25rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Skip Navigation link for keyboard / screen-reader users -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- ================================================
+         Task 1: <header> element (logo + welcome message)
+    ================================================ -->
+    <header>
+      <div class="header-inner">
+        <!-- Task 7: Logo wrapped in .center-and-space-content div -->
+        <div class="logo-wrapper center-and-space-content">
+          <!-- Task 5: Descriptive alt text on logo image -->
+          <img
+            class="logo"
+            src="logo.jpg"
+            alt="Harbor Light Community Center Logo"
+          />
+        </div>
+
+        <div class="header-text">
+          <h1>Harbor Light Community Center</h1>
+          <p>Connecting &amp; Empowering Our Community</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================================================
+         Task 1 & 6: <nav> with ARIA role, <ul>/<li>/<a>,
+         href anchor links pointing to section IDs
+    ================================================ -->
+    <!-- Task 5: aria role="navigation" for better accessibility -->
+    <nav role="navigation" aria-label="Main site navigation">
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#events">Join Our Events</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- ================================================
+         Decorative Banner
+         Task 5: aria-hidden="true" and alt="" so screen
+                 readers skip the decorative image entirely
+    ================================================ -->
+    <div class="banner-wrapper">
+      <img
+        src="community-banner.jpg"
+        alt=""
+        aria-hidden="true"
+        role="presentation"
+      />
+      <div class="banner-overlay"></div>
+      <span class="banner-caption">Building Brighter Futures Together</span>
+    </div>
+
+    <!-- ================================================
+         Task 2: <main> wrapping primary content
+    ================================================ -->
+    <main id="main-content">
+
+      <!-- ============================================
+           About Us Section
+           Task 2: <section> with id (Task 6) and <h2>
+      ============================================= -->
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Us</h2>
+
+        <div class="about-grid">
+          <div>
+            <p>
+              Harbor Light Community Center has been a cornerstone of our
+              neighborhood since 1985. We are dedicated to fostering a vibrant,
+              inclusive, and supportive community environment where every
+              individual can thrive.
+            </p>
+            <p>
+              Our programs span education, health and wellness, the arts, and
+              civic engagement — all designed with the community's needs at the
+              heart of everything we do.
+            </p>
+          </div>
+
+          <!-- Task 5: Descriptive alt text on community image -->
+          <img
+            src="community-center.jpg"
+            alt="Harbor Light Community Center People"
+          />
+        </div>
+      </section>
+
+      <!-- ============================================
+           Our Services Section
+           Task 2: <section> with id (Task 6) and <h2>
+      ============================================= -->
+      <section id="services" aria-labelledby="services-heading">
+        <h2 id="services-heading">Our Services</h2>
+
+        <p>
+          We offer a wide range of programs and services designed to support
+          every member of our community:
+        </p>
+
+        <ul class="services-list">
+          <li>🎓 After-School Tutoring &amp; Mentorship</li>
+          <li>🏋️ Fitness &amp; Wellness Classes</li>
+          <li>🎨 Arts, Crafts &amp; Creative Workshops</li>
+          <li>👴 Senior Citizens' Day Program</li>
+          <li>💼 Job Readiness &amp; Career Coaching</li>
+          <li>🌿 Community Garden &amp; Green Spaces</li>
+        </ul>
+      </section>
+
+      <!-- ============================================
+           Join Our Events Section
+           Task 2 & 3: <section> with Schema.org microdata,
+           itemscope, itemtype, itemprop attributes,
+           <strong>, <br>, <time datetime="...">
+      ============================================= -->
+      <section
+        id="events"
+        aria-labelledby="events-heading"
+        itemscope
+        itemtype="http://schema.org/Event"
+      >
+        <h2 id="events-heading">Join Our Events</h2>
+
+        <p>
+          We host exciting events throughout the year to bring our community
+          together. Don't miss the latest happening at Harbor Light!
+        </p>
+
+        <!-- Task 2 & 3: Event details inside event-card -->
+        <div class="event-card">
+          <!-- itemprop="description" marks the event description -->
+          <p itemprop="description">
+            <strong>Annual Summer Festival</strong><br />
+            <!-- Task 3: <time> with datetime attribute for machine-readable date;
+                 itemprop="startDate" for Schema.org -->
+            Join us on
+            <time datetime="2050-07-15" itemprop="startDate">
+              July 15, 2050
+            </time>
+            for a day of live music, local food stalls, community art
+            installations, and family fun. All are welcome — bring the whole
+            family!
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================
+           Contact Us Section  (Task 4 & 6)
+           id="contact" for anchor nav
+      ============================================= -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Us</h2>
+
+        <p>
+          We'd love to hear from you! Whether you have a question about our
+          programs, want to volunteer, or simply want to learn more about what
+          we do, reach out to us at any time.
+        </p>
+
+        <!-- Task 4: mailto: email link -->
+        <a
+          class="contact-link"
+          href="mailto:info@harborlight.com"
+          aria-label="Send an email to Harbor Light Community Center"
+        >
+          ✉️ info@harborlight.com
+        </a>
+      </section>
+    </main>
+
+    <!-- ================================================
+         Task 4: <footer> element with copyright paragraph
+    ================================================ -->
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <h2>Harbor Light Community Center</h2>
+          <p>
+            A welcoming home for everyone in our community — open Monday through
+            Saturday, 8 am to 8 pm.
+          </p>
+        </div>
+
+        <div>
+          <h2>Quick Links</h2>
+          <ul style="list-style: none; padding: 0">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#events">Join Our Events</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Task 4: Copyright paragraph with © symbol, year, org name -->
+      <div class="footer-bottom">
+        <p>&copy; 2050 Harbor Light Community Center</p>
+      </div>
+    </footer>
+  </body>
+</html>
