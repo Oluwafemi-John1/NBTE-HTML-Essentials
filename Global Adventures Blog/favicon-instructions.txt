@@ -1,0 +1,11 @@
+Place your favicon.ico file here (in the root of the project, same level as index.html).
+
+Recommended favicon sizes: 16×16, 32×32, or 48×48 pixels.
+Save as favicon.ico for maximum browser compatibility.
+
+Free tools to generate a favicon from an image:
+  - https://favicon.io
+  - https://realfavicongenerator.net
+
+Once created, the file is already linked in every HTML page:
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />

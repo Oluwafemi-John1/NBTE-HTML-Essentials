@@ -3,339 +3,341 @@
    ============================================================= */
 
 /* --- Reset & Base ------------------------------------------ */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #2c2c2c;
-  background-color: #fafafa;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background-color: #fafafa;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 a {
-  color: #0057a8;
-  text-decoration: none;
+    color: #0057a8;
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* --- Header ------------------------------------------------ */
 header {
-  background-color: #003366;
-  color: #ffffff;
-  padding: 2rem 1.5rem;
-  text-align: center;
+    background-color: #003366;
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    text-align: center;
 }
 
 header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
 }
 
 header p {
-  font-size: 1.05rem;
-  max-width: 700px;
-  margin: 0 auto;
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* --- Navigation -------------------------------------------- */
 nav {
-  background-color: #0057a8;
-  padding: 0.75rem 1.5rem;
+    background-color: #0057a8;
+    padding: 0.75rem 1.5rem;
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 nav ul li a {
-  color: #ffffff;
-  font-size: 0.95rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
 }
 
 nav ul li a:hover {
-  background-color: rgba(255,255,255,0.2);
-  text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
 }
 
 /* Nested dropdowns */
 nav ul ul {
-  display: none;
-  position: absolute;
-  background-color: #0057a8;
-  padding: 0.5rem 0;
-  border-radius: 4px;
-  z-index: 100;
+    display: none;
+    position: absolute;
+    background-color: #0057a8;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    z-index: 100;
 }
 
-nav ul li:hover > ul {
-  display: block;
+nav ul li:hover>ul {
+    display: block;
 }
 
 /* --- Slideshow / Image Section ----------------------------- */
 #slideshow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1.5rem;
-  justify-content: center;
-  background-color: #f0f4f8;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    justify-content: center;
+    background-color: #f0f4f8;
 }
 
 #slideshow figure {
-  flex: 1 1 280px;
-  max-width: 380px;
-  text-align: center;
+    flex: 1 1 280px;
+    max-width: 380px;
+    text-align: center;
 }
 
 #slideshow img {
-  border-radius: 8px;
-  width: 100%;
+    border-radius: 8px;
+    width: 100%;
 }
 
 #slideshow figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #555;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
 }
 
 /* --- Main & Sections --------------------------------------- */
 main {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
 }
 
 section {
-  margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 section h2 {
-  font-size: 1.6rem;
-  color: #003366;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #0057a8;
-  padding-bottom: 0.4rem;
+    font-size: 1.6rem;
+    color: #003366;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0057a8;
+    padding-bottom: 0.4rem;
 }
 
 section h3 {
-  font-size: 1.25rem;
-  color: #0057a8;
-  margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #0057a8;
+    margin-bottom: 0.5rem;
 }
 
 p {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 blockquote {
-  border-left: 4px solid #0057a8;
-  padding: 0.75rem 1rem;
-  background-color: #eef4fb;
-  font-style: italic;
-  margin: 1.5rem 0;
-  border-radius: 0 6px 6px 0;
+    border-left: 4px solid #0057a8;
+    padding: 0.75rem 1rem;
+    background-color: #eef4fb;
+    font-style: italic;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
 }
 
 /* --- City Preview Articles --------------------------------- */
 #city-previews {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 #city-previews article {
-  border: 1px solid #dce3ec;
-  border-radius: 8px;
-  padding: 1.5rem;
-  background-color: #ffffff;
+    border: 1px solid #dce3ec;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: #ffffff;
 }
 
 #city-previews article img {
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  width: 100%;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    width: 100%;
 }
 
 #city-previews article a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-weight: bold;
-  color: #0057a8;
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #0057a8;
 }
 
 /* --- Figure & Figcaption ----------------------------------- */
 figure {
-  margin: 1.5rem 0;
+    margin: 1.5rem 0;
 }
 
 figcaption {
-  margin-top: 0.4rem;
-  font-size: 0.88rem;
-  color: #666;
-  font-style: italic;
+    margin-top: 0.4rem;
+    font-size: 0.88rem;
+    color: #666;
+    font-style: italic;
 }
 
 /* --- Photo Gallery ----------------------------------------- */
 .photo-gallery ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
 }
 
 .photo-gallery ul li {
-  flex: 1 1 200px;
-  max-width: 260px;
+    flex: 1 1 200px;
+    max-width: 260px;
 }
 
 .photo-gallery ul li figure img {
-  width: 100%;
-  border-radius: 8px;
+    width: 100%;
+    border-radius: 8px;
 }
 
 /* --- Forms ------------------------------------------------- */
 .form-group {
-  margin-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.4rem;
-  color: #003366;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    color: #003366;
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
-  width: 100%;
-  padding: 0.65rem 0.85rem;
-  border: 1px solid #bbc8d8;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: #fff;
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #bbc8d8;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fff;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: 2px solid #0057a8;
-  border-color: #0057a8;
+    outline: 2px solid #0057a8;
+    border-color: #0057a8;
 }
 
 .form-group textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 .form-group--checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
 }
 
 .form-group--checkbox input[type="checkbox"] {
-  margin-top: 0.25rem;
-  flex-shrink: 0;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
 }
 
 .form-group--checkbox label {
-  font-weight: normal;
-  font-size: 0.95rem;
-  color: #333;
+    font-weight: normal;
+    font-size: 0.95rem;
+    color: #333;
 }
 
 button[type="submit"] {
-  background-color: #0057a8;
-  color: #ffffff;
-  border: none;
-  padding: 0.75rem 1.75rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  cursor: pointer;
+    background-color: #0057a8;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 button[type="submit"]:hover {
-  background-color: #003f80;
+    background-color: #003f80;
 }
 
 /* --- Video ------------------------------------------------- */
 video {
-  border-radius: 8px;
-  margin-top: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
 }
 
 /* --- Footer ------------------------------------------------ */
 footer {
-  background-color: #1a1a2e;
-  color: #cccccc;
-  padding: 2rem 1.5rem;
-  margin-top: 3rem;
+    background-color: #1a1a2e;
+    color: #cccccc;
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
 }
 
 footer a {
-  color: #90b8e8;
+    color: #90b8e8;
 }
 
 footer a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .footer-links ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 0;
-  margin-bottom: 1rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin-bottom: 1rem;
 }
 
 .footer-social {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
 }
 
 .footer-social p {
-  margin: 0;
-  font-weight: bold;
+    margin: 0;
+    font-weight: bold;
 }
 
 .footer-contact {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .footer-copyright {
-  font-size: 0.85rem;
-  color: #888;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
-  margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #888;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    margin-top: 1rem;
 }
