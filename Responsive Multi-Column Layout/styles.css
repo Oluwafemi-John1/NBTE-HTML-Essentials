@@ -1,0 +1,363 @@
+/* ===================================================
+   TECH BLOG — styles.css
+   Implements all 8 required layout steps with a
+   polished, premium dark-mode aesthetic.
+   =================================================== */
+
+/* ── 0. Google Font & CSS Reset ─────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Root Colour Tokens ─────────────────────────── */
+:root {
+  --bg:          #0f1117;
+  --bg-surface:  #1a1d27;
+  --bg-card:     #22263a;
+  --border:      #2e3248;
+  --accent:      #6c63ff;
+  --accent-glow: rgba(108, 99, 255, 0.25);
+  --accent2:     #00d4aa;
+  --text-primary:   #e8eaf6;
+  --text-secondary: #9194a9;
+  --header-bg:   #f4f4f4;
+  --header-text: #333;
+  --col-bg:      #e2e2e2;
+  --radius:      12px;
+  --shadow:      0 8px 32px rgba(0,0,0,.45);
+  --transition:  .25s ease;
+}
+
+/* ── Base Page ──────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── NAV ────────────────────────────────────────── */
+nav {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: .9rem;
+  font-weight: 500;
+  transition: color var(--transition);
+  letter-spacing: .02em;
+}
+
+nav a:hover { color: var(--accent); }
+
+nav .logo {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-right: auto;
+}
+
+nav .logo span { color: var(--accent); }
+
+/* ── STEP 4 — HEADER ────────────────────────────
+   background-color: #f4f4f4 | color: #333
+   ──────────────────────────────────────────────*/
+header {
+  background-color: #f4f4f4;   /* Step 4 */
+  color: #333;                  /* Step 4 */
+  padding: 56px 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(108,99,255,.08) 0%, rgba(0,212,170,.06) 100%);
+  pointer-events: none;
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #333;
+  position: relative;
+}
+
+header h1 span {
+  background: linear-gradient(90deg, #6c63ff, #00d4aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+header p.tagline {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #666;
+  position: relative;
+}
+
+/* ── STEP 1 — CONTAINER ─────────────────────────
+   width: 90% | margin: auto (centred)
+   padding: 20px | border: 1px solid #ccc
+   ──────────────────────────────────────────────*/
+.container {
+  width: 90%;              /* Step 1 */
+  margin: 32px auto;       /* Step 1: centred */
+  padding: 20px;           /* Step 1 */
+  border: 1px solid #ccc;  /* Step 1 */
+  background: var(--bg-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative accent bar */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.section-label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── STEP 2 — COLUMNS (floats) ──────────────────
+   float: left | width: 30% | margin: 1.66%
+   ──────────────────────────────────────────────*/
+.column {
+  float: left;             /* Step 2 */
+  width: 30%;              /* Step 2 */
+  margin: 1.66%;           /* Step 2 */
+  background-color: #e2e2e2;  /* Step 4: #e2e2e2 base */
+  background-color: var(--bg-card); /* dark-mode override */
+  border-radius: 10px;
+  padding: 24px 20px;
+  border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.column::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(108,99,255,.22);
+  border-color: var(--accent);
+}
+
+.column:hover::after { transform: scaleX(1); }
+
+.column h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.column p {
+  font-size: .9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.column .icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.column .tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: .7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--accent-glow);
+  color: var(--accent);
+  letter-spacing: .05em;
+}
+
+/* ── STEP 3 — CLEARFIX ──────────────────────────
+   clear: both to clear floated columns
+   ──────────────────────────────────────────────*/
+.clearfix {
+  clear: both;    /* Step 3 */
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* ── STEP 6 — GRID (row + columns) ─────────────
+   .row wraps float-based .column grid items
+   ──────────────────────────────────────────────*/
+.row {
+  overflow: hidden;
+  margin: 0 -1.66%;
+}
+
+/* Grid items get a distinct centred look */
+.row .column {
+  background: linear-gradient(135deg, var(--bg-card), #1e2236);
+  border: 1px dashed var(--border);
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent2);
+  font-size: .95rem;
+  letter-spacing: .04em;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ── STEP 7 — POST / IMAGE TEXT WRAP ────────────
+   img floated left, width 50%, text wraps right
+   ──────────────────────────────────────────────*/
+.post {
+  overflow: hidden; /* contains the float */
+  padding: 4px 0;
+}
+
+.post .post-image {
+  float: left;          /* Step 7 */
+  width: 50%;           /* Step 7 */
+  margin: 0 22px 12px 0;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  display: block;
+  background: linear-gradient(135deg, #1e2236 0%, #2a1f4e 100%);
+  min-height: 190px;
+  position: relative;
+  overflow: hidden;
+}
+
+.post .post-image::before {
+  content: '📷';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.8rem;
+  opacity: .55;
+}
+
+.post .post-image::after {
+  content: 'Tech Image';
+  position: absolute;
+  bottom: 14px; left: 0; right: 0;
+  text-align: center;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.post h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.post p {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  line-height: 1.8;
+}
+
+/* ── FOOTER ─────────────────────────────────────── */
+footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 28px 20px;
+  color: var(--text-secondary);
+  font-size: .85rem;
+  margin-top: 16px;
+}
+
+footer strong { color: var(--accent); }
+
+/* ── STEP 5 — MEDIA QUERIES (responsive) ────────
+   max-width: 768px → columns 100%, float none
+   ──────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  /* Step 5: remove float, go full-width */
+  .column {
+    float: none;     /* Step 5 */
+    width: 100%;     /* Step 5 */
+    margin: 8px 0;
+  }
+
+  .row .column { min-height: 64px; }
+
+  .post .post-image {
+    float: none;
+    width: 100%;
+    margin: 0 0 18px 0;
+  }
+
+  nav { flex-wrap: wrap; gap: 12px; padding: 12px 4%; }
+
+  header h1 { font-size: 1.7rem; }
+
+  .container { width: 95%; padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 12px; }
+  header { padding: 32px 4%; }
+}

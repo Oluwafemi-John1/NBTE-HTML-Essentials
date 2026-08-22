@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tech Blog — Your source for the latest tech news, gadget reviews, and developer tutorials.">
+  <title>Tech Blog | News · Reviews · Tutorials</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────── -->
+  <nav>
+    <span class="logo">Tech<span>Blog</span></span>
+    <a href="#">Home</a>
+    <a href="#">News</a>
+    <a href="#">Reviews</a>
+    <a href="#">Tutorials</a>
+    <a href="#">About</a>
+  </nav>
+
+  <!-- ── STEP 4: Header — bg #f4f4f4, text #333 ── -->
+  <header>
+    <h1>Welcome to the <span>Tech Blog</span></h1>
+    <p class="tagline">News · Reviews · Tutorials — all in one place.</p>
+  </header>
+
+  <!-- ════════════════════════════════════════════
+       SECTION 1 — Main columns
+       STEP 1: .container → width 90%, centred,
+               padding 20px, border 1px solid #ccc
+       STEP 2: .column → float left, 30%, 1.66% margin
+       STEP 3: .clearfix → clears floats
+       STEP 4: header bg #f4f4f4/#333, columns #e2e2e2
+       ════════════════════════════════════════════ -->
+  <div class="container">
+    <p class="section-label">📰 Featured Categories</p>
+
+    <div class="column">
+      <span class="icon">📡</span>
+      <h2>Latest News</h2>
+      <p>Stay updated with the latest tech news — from AI breakthroughs to emerging hardware trends shaping the industry.</p>
+      <span class="tag">Trending</span>
+    </div>
+
+    <div class="column">
+      <span class="icon">⭐</span>
+      <h2>Reviews</h2>
+      <p>Read in-depth, unbiased reviews of the latest gadgets, smartphones, laptops, and developer tools on the market.</p>
+      <span class="tag">Editor's Pick</span>
+    </div>
+
+    <div class="column">
+      <span class="icon">💡</span>
+      <h2>Tutorials</h2>
+      <p>Learn how to use new tech tools with step-by-step guides written by industry professionals and senior engineers.</p>
+      <span class="tag">Learn</span>
+    </div>
+
+    <!-- STEP 3: clearfix div clears the floated columns -->
+    <div class="clearfix"></div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       SECTION 2 — Grid layout (STEP 6)
+       .row wraps float-based .column grid items
+       ════════════════════════════════════════════ -->
+  <div class="container">
+    <p class="section-label">🔲 Grid Layout — Float-Based</p>
+
+    <div class="row">
+      <div class="column">⚡ Grid Item 1</div>
+      <div class="column">🔋 Grid Item 2</div>
+      <div class="column">🛰️ Grid Item 3</div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       SECTION 3 — Image text wrap (STEP 7)
+       .post-image floated left at 50% width,
+       text wraps around it
+       ════════════════════════════════════════════ -->
+  <div class="container">
+    <p class="section-label">🖼️ Text Wrapping Around an Image</p>
+
+    <div class="post">
+      <!-- STEP 7: image-like div floated left, width 50% -->
+      <div class="post-image"></div>
+
+      <h2>Inside the World of Modern AI Chips</h2>
+      <p>
+        This is an example of text wrapping around an image using CSS floats.
+        The image placeholder is floated to the left at 50% of its container width,
+        while this paragraph flows naturally around its right-hand side.
+      </p>
+      <p style="margin-top: 12px;">
+        Modern AI processors are built with billions of transistors etched at nanometre
+        scales. Engineers are pushing the physical limits of silicon — exploring 3D stacking,
+        photonic interconnects, and analogue in-memory computing to keep pace with the
+        ever-growing demands of large language models and real-time inference workloads.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Footer ─────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2026 <strong>TechBlog</strong>. Built with HTML &amp; CSS Floats · Responsive Multi-Column Layout Exercise.</p>
+  </footer>
+
+</body>
+</html>
